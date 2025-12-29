@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /vendors/
+Allow: /image/
+
+Sitemap: https://your-domain.com/sitemap.xml
