@@ -605,7 +605,6 @@
           const popup = document.createElement('div');
 
           popup.className = `popup popup-${type}`;
-          // Добавляем префикс [SYSTEM] к заголовку, если он не задан
           const displayTitle = title || `SYSTEM_${type.toUpperCase()}`;
 
           popup.innerHTML = `
@@ -743,6 +742,7 @@
         inputEl.value = '';
         updateHighlighting('');
         outputEl.value = '';
+        Notifier.warning('Успешно очищено!', '307 Temporary Redirect');
         document.getElementById('savedPercent').innerText = '0.0%';
         statusText.innerText = 'IDLE';
         statusIndicator.className = 'w-1.5 h-1.5 rounded-full bg-gray-600';
