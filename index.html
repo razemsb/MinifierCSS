@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EMC | Enigma Minifier CSS</title>
     <link rel="preload" href="./assets/styles/style.min.css" as="style" />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+    />
     <link rel="preload" href="./assets/scripts/script.js" as="script" />
     <link
       rel="preload"
@@ -122,7 +126,27 @@
     </header>
 
     <main class="container mx-auto px-4 py-8 flex flex-col gap-6 flex-grow">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+        <div class="bg-cyber-dark border border-white/5 p-4 flex justify-between items-center h-16">
+          <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">
+            Buffer_Load
+          </span>
+          <div class="flex flex-col items-end">
+            <span
+              id="charCounter"
+              class="text-white font-bold font-mono text-sm tracking-tighter transition-all duration-300"
+            >
+              0 / 80k
+            </span>
+            <div class="w-16 h-[2px] bg-gray-800 mt-1 overflow-hidden">
+              <div
+                id="charProgress"
+                class="h-full bg-neon-blue transition-all duration-300"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+        </div>
         <div class="bg-cyber-dark border border-white/5 p-4 flex justify-between items-center h-16">
           <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold"
             >System_Status</span
@@ -176,7 +200,6 @@
           </button>
         </div>
       </div>
-
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 flex-grow h-[550px]">
         <div class="flex flex-col group relative h-full">
           <div class="corner corner-cyan c-tl"></div>

@@ -127,13 +127,43 @@ const copyBtn = document.getElementById('copyBtn');
 const clearBtn = document.getElementById('clearBtn');
 const inputArea = document.getElementById('inputCss');
 const outputArea = document.getElementById('outputCss');
+const MAX_CHARS = 80000;
 
 function updateButtonStates() {
-    clearBtn.disabled = inputArea.value.trim().length === 0;
+    const currentLen = inputArea.value.length;
+    clearBtn.disabled = currentLen === 0;
     copyBtn.disabled = outputArea.value.trim().length === 0;
+    const counter = document.getElementById('charCounter');
+    const progress = document.getElementById('charProgress');
+
+    if (counter && progress) {
+        const displayLen = currentLen > 999 ? (currentLen / 1000).toFixed(1) + 'k' : currentLen;
+        counter.innerText = `${displayLen} / 80k`;
+
+        const percent = Math.min((currentLen / MAX_CHARS) * 100, 100);
+        progress.style.width = `${percent}%`;
+
+        if (currentLen > MAX_CHARS * 0.9) {
+            counter.classList.remove('text-white');
+            counter.classList.add('text-neon-blue');
+            counter.style.textShadow = '0 0 8px rgba(0, 240, 255, 0.6)';
+            progress.classList.replace('bg-neon-blue', 'bg-neon-green'); 
+        } else {
+            counter.classList.add('text-white');
+            counter.classList.remove('text-neon-blue');
+            counter.style.textShadow = 'none';
+            progress.classList.add('bg-neon-blue');
+        }
+    }
 }
 
 function updateHighlighting(text) {
+    if (text.length > MAX_CHARS) {
+        inputEl.value = text.substring(0, MAX_CHARS);
+        text = inputEl.value;
+        Notifier.warning(`Превышен лимит символов (${MAX_CHARS}). Код был обрезан.`, '413 Payload Too Large');
+    }
+
     let content = text.replace(/&/g, "&amp;").replace(/</g, "&lt;");
     document.getElementById('highlighting-code').innerHTML = content + "\n";
     Prism.highlightElement(document.getElementById('highlighting-code'));
