@@ -55,9 +55,8 @@
     <meta property="twitter:title" content="EMC | Enigma Minifier CSS" />
     <meta
       property="twitter:description"
-      content="Безопасная минификация CSS без серверной обработки."
+      content="Безопасная минификация CSS файлов."
     />
-    <meta property="twitter:image" content="./image/og-preview.png" />
     <meta name="theme-color" content="#050507" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="./assets/styles/style.min.css" rel="stylesheet" />
@@ -86,7 +85,9 @@
               'cyber-black': '#050507',
               'cyber-dark': '#0b0d11',
               'neon-blue': '#00f0ff',
+              'neon-red': '#00f0ff',
               'neon-green': '#00ff9d',
+              'neon-yellow': '#facc15',
             },
           },
         },
@@ -134,7 +135,7 @@
           <div class="flex flex-col items-end">
             <span
               id="charCounter"
-              class="text-white font-bold font-mono text-sm tracking-tighter transition-all duration-300"
+              class="text-neon-blue font-bold font-mono text-sm tracking-tighter transition-all duration-300"
             >
               0 / 80k
             </span>
@@ -208,14 +209,14 @@
           <div class="corner corner-cyan c-br"></div>
 
           <div class="mb-2 flex justify-between items-center px-1">
-            <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-neon-blue"
+            <span class="text-[13px] uppercase tracking-[0.2em] font-bold text-neon-blue"
               >Source_Buffer</span
             >
             <button
               id="clearBtn"
               onclick="clearAll()"
               disabled
-              class="text-[10px] text-gray-600 hover:text-red-500 uppercase font-bold disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-gray-600 transition-all"
+              class="text-[14px] text-gray-600 hover:text-red-500 uppercase font-bold disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-gray-600 transition-all"
             >
               [ Clear ]
             </button>
@@ -245,14 +246,14 @@
           <div class="corner corner-green c-br"></div>
 
           <div class="mb-2 flex justify-between items-center px-1">
-            <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-neon-green"
+            <span class="text-[13px] uppercase tracking-[0.2em] font-bold text-neon-green"
               >Minified_Stream</span
             >
             <button
               onclick="copyOutput()"
               id="copyBtn"
               disabled
-              class="text-[10px] text-neon-green hover:text-white uppercase font-bold disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-neon-green transition-all"
+              class="text-[14px] text-neon-green hover:text-white uppercase font-bold disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-neon-green transition-all"
             >
               [ Copy ]
             </button>
@@ -269,21 +270,5 @@
       </div>
     </main>
     <div id="popup-container" class="fixed bottom-4 right-4 space-y-2 z-50"></div>
-
-    <footer class="border-t border-white/5 bg-cyber-black/90 py-6">
-      <div
-        class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4"
-      >
-        <p class="text-[10px] font-mono text-gray-600 tracking-widest">
-          EMC CORE v4.2 // RSA_ENCRYPTION_DISABLED // NO_LOGS
-        </p>
-        <div class="flex gap-6">
-          <span
-            class="text-[9px] text-gray-500 uppercase tracking-tighter italic underline decoration-neon-blue/20"
-            >Client-Side Only Processing</span
-          >
-        </div>
-      </div>
-    </footer>
   </body>
 </html>
