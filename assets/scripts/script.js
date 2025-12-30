@@ -315,11 +315,12 @@ class EnigmaConsole {
 window.EnConsole = new EnigmaConsole();
 
 document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'd') {
+    if (e.altKey && e.shiftKey && e.key.toLowerCase() === 'd') {
         e.preventDefault();
         window.EnConsole.toggle();
     }
 });
+
 class EnigmaNotifier {
     constructor(options = {}) {
         this.settings = {
