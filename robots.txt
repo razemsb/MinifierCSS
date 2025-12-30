@@ -2,5 +2,8 @@ User-agent: *
 Allow: /
 Allow: /vendors/
 Allow: /image/
+Allow: /assets/images/
+Allow: /assets/styles/*.css
+Allow: /assets/scripts/*.js
 
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://razemsb.github.io/MinifierCSS/sitemap.xml

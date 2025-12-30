@@ -4,12 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EMC | Enigma Minifier CSS</title>
-    <link rel="icon" type="image/png" href="./image/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./image/favicon.svg" />
-    <link rel="shortcut icon" href="./image/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./image/apple-touch-icon.png" />
+    <link rel="preload" href="./assets/styles/style.min.css" as="style" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" />
+    <link rel="preload" href="./assets/scripts/script.js" as="script" />
+    <link
+      rel="preload"
+      href="./assets/vendors/Fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="./assets/vendors/Fonts/Rajdhani/Rajdhani-Medium.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link rel="preload" href="./assets/scripts/script.js" as="script" />
+    <link rel="icon" type="image/png" href="./assets/image/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/image/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/image/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/image/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="EMC" />
-    <link rel="manifest" href="./image/site.webmanifest" />
+    <link rel="manifest" href="./assets/image/site.webmanifest" />
     <meta name="title" content="EMC | Enigma Minifier CSS — Быстрая минификация кода" />
     <meta
       name="description"
@@ -22,7 +40,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="EMC System" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://your-domain.com/" />
+    <meta property="og:url" content="https://razemsb.github.io/MinifierCSS" />
     <meta property="og:title" content="EMC | Enigma Minifier CSS" />
     <meta
       property="og:description"
@@ -38,6 +56,8 @@
     <meta property="twitter:image" content="./image/og-preview.png" />
     <meta name="theme-color" content="#050507" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./assets/styles/style.min.css" rel="stylesheet" />
+    <link href="./assets/styles/popup.min.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -46,27 +66,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
       rel="stylesheet"
     />
+    <script src="./assets/scripts/script.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
-    <link href="./vendors/EPopups/style.css" rel="stylesheet" />
-    <style>
-      @font-face {
-        font-family: 'Rajdhani';
-        src: url('./vendors/Fonts/Rajdhani/Rajdhani-Medium.ttf') format('truetype');
-        font-weight: 700 900;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: 'JetBrains Mono';
-        src: url('./vendors/Fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf')
-          format('truetype');
-        font-weight: 400 700;
-        font-style: normal;
-        font-display: swap;
-      }
-    </style>
 
     <script>
       tailwind.config = {
@@ -86,295 +88,6 @@
         },
       };
     </script>
-
-    <style>
-      ::selection {
-        background-color: rgba(0, 240, 255, 0.3);
-        color: #ffffff;
-        text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
-      }
-
-      ::-moz-selection {
-        background-color: rgba(0, 240, 255, 0.3);
-        color: #ffffff;
-        text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
-      }
-
-      ::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0b0d11;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1f2937;
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #00f0ff;
-      }
-
-      :root {
-        --popup-success: #00ff9d;
-        --popup-error: #ef4444;
-        --popup-info: #00f0ff;
-        --popup-warning: #facc15;
-        --cyber-panel: rgba(11, 13, 17, 0.9);
-        --font-mono: 'JetBrains Mono', monospace;
-      }
-
-      body {
-        background-color: #050507;
-        background-image: radial-gradient(circle, #1f2937 1px, transparent 1px);
-        background-size: 30px 30px;
-      }
-
-      .editor-container {
-        position: relative;
-        background: #0d0f14;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        height: 100%;
-        min-height: 450px;
-      }
-
-      .code-input,
-      .code-highlight {
-        margin: 0 !important;
-        padding: 24px !important;
-        border: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        font-family: 'JetBrains Mono', monospace !important;
-        font-size: 14px !important;
-        line-height: 1.6 !important;
-        tab-size: 4 !important;
-        white-space: pre !important;
-        word-wrap: normal !important;
-        overflow: auto !important;
-      }
-
-      #inputCss {
-        z-index: 2;
-        color: transparent !important;
-        background: transparent !important;
-        caret-color: #00f0ff;
-        resize: none;
-        outline: none;
-      }
-
-      #highlighting-content {
-        z-index: 1;
-        pointer-events: none;
-        background: transparent !important;
-      }
-
-      code[class*='language-'] {
-        background: transparent !important;
-        text-shadow: none !important;
-      }
-
-      #outputCss {
-        background: rgba(0, 0, 0, 0.4);
-        color: #00ff9d;
-        opacity: 0.8;
-        padding: 24px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 14px;
-        line-height: 1.6;
-        width: 100%;
-        height: 100%;
-        border: none;
-        resize: none;
-        outline: none;
-      }
-
-      .corner {
-        position: absolute;
-        width: 12px;
-        height: 12px;
-        border: 2px solid #1f2937;
-        z-index: 10;
-        transition: border-color 0.3s;
-      }
-      .group:hover .corner-cyan {
-        border-color: #00f0ff;
-      }
-      .group:hover .corner-green {
-        border-color: #00ff9d;
-      }
-      .c-tl {
-        top: -2px;
-        left: -2px;
-        border-right: 0;
-        border-bottom: 0;
-      }
-      .c-tr {
-        top: -2px;
-        right: -2px;
-        border-left: 0;
-        border-bottom: 0;
-      }
-      .c-bl {
-        bottom: -2px;
-        left: -2px;
-        border-right: 0;
-        border-top: 0;
-      }
-      .c-br {
-        bottom: -2px;
-        right: -2px;
-        border-left: 0;
-        border-top: 0;
-      }
-
-      .popup-container {
-        position: fixed;
-        z-index: 10000;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        padding: 24px;
-      }
-
-      .popup-container.bottom-right {
-        bottom: 0;
-        right: 0;
-        align-items: flex-end;
-      }
-      .popup-container.top-right {
-        top: 0;
-        right: 0;
-        align-items: flex-end;
-      }
-      .popup-container.bottom-left {
-        bottom: 0;
-        left: 0;
-        align-items: flex-start;
-      }
-      .popup-container.top-left {
-        top: 0;
-        left: 0;
-        align-items: flex-start;
-      }
-
-      .popup {
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-        min-width: 320px;
-        max-width: 400px;
-        background: var(--cyber-panel);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 15px 100%, 0 calc(100% - 15px));
-        padding: 16px 20px;
-        font-family: var(--font-mono);
-        color: #cbd5e1;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        transform: translateX(50px);
-        opacity: 0;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        position: relative;
-      }
-
-      .popup.show {
-        transform: translateX(0);
-        opacity: 1;
-      }
-
-      .popup.hide {
-        transform: translateX(50px);
-        opacity: 0;
-      }
-
-      .popup::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 3px;
-        height: 100%;
-      }
-
-      .popup-success::before {
-        background: var(--popup-success);
-        box-shadow: 0 0 15px var(--popup-success);
-      }
-      .popup-error::before {
-        background: var(--popup-error);
-        box-shadow: 0 0 15px var(--popup-error);
-      }
-      .popup-info::before {
-        background: var(--popup-info);
-        box-shadow: 0 0 15px var(--popup-info);
-      }
-      .popup-warning::before {
-        background: var(--popup-warning);
-        box-shadow: 0 0 15px var(--popup-warning);
-      }
-
-      .popup-icon {
-        font-size: 18px;
-        margin-top: 2px;
-      }
-
-      .popup-success .popup-icon {
-        color: var(--popup-success);
-      }
-      .popup-error .popup-icon {
-        color: var(--popup-error);
-      }
-      .popup-info .popup-icon {
-        color: var(--popup-info);
-      }
-      .popup-warning .popup-icon {
-        color: var(--popup-warning);
-      }
-
-      .popup-title {
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        font-weight: 700;
-        margin-bottom: 4px;
-        color: #fff;
-      }
-
-      .popup-message {
-        font-size: 12px;
-        line-height: 1.5;
-        opacity: 0.9;
-      }
-
-      .popup-time {
-        font-size: 10px;
-        color: #475569;
-        margin-top: 8px;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-
-      .popup-close {
-        background: transparent;
-        border: none;
-        color: #475569;
-        cursor: pointer;
-        font-size: 14px;
-        transition: color 0.2s;
-        padding: 4px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-      }
-
-      .popup-close:hover {
-        color: #fff;
-      }
-    </style>
   </head>
   <body
     class="text-gray-300 min-h-screen flex flex-col font-sans selection:bg-neon-blue selection:text-black"
@@ -399,7 +112,9 @@
             ><i class="fas fa-circle text-neon-green text-[6px] mr-2 animate-pulse"></i>
             ENGINE_STABLE</span
           >
-          <a href="https://github.com" class="hover:text-white transition-colors"
+          <a
+            href="https://github.com/razemsb/MinifierCSS"
+            class="hover:text-white transition-colors"
             ><i class="fab fa-github text-lg"></i
           ></a>
         </div>
@@ -474,8 +189,10 @@
               >Source_Buffer</span
             >
             <button
+              id="clearBtn"
               onclick="clearAll()"
-              class="text-[10px] text-gray-600 hover:text-red-500 uppercase font-bold"
+              disabled
+              class="text-[10px] text-gray-600 hover:text-red-500 uppercase font-bold disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-gray-600 transition-all"
             >
               [ Clear ]
             </button>
@@ -511,7 +228,8 @@
             <button
               onclick="copyOutput()"
               id="copyBtn"
-              class="text-[10px] text-neon-green hover:text-white uppercase font-bold"
+              disabled
+              class="text-[10px] text-neon-green hover:text-white uppercase font-bold disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-neon-green transition-all"
             >
               [ Copy ]
             </button>
@@ -544,221 +262,5 @@
         </div>
       </div>
     </footer>
-    <script>
-      class EnigmaNotifier {
-        constructor(options = {}) {
-          this.settings = {
-            position: 'bottom-right',
-            duration: 2000,
-            maxNotifications: 3,
-            showTime: true,
-            autoClose: true,
-            ...options,
-          };
-
-          this.icons = {
-            success: '<i class="fa-solid fa-bolt-lightning"></i>',
-            error: '<i class="fa-solid fa-microchip"></i>',
-            info: '<i class="fa-solid fa-terminal"></i>',
-            warning: '<i class="fa-solid fa-triangle-exclamation"></i>',
-          };
-
-          this.initContainers();
-        }
-
-        initContainers() {
-          const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
-          positions.forEach((pos) => {
-            if (!document.getElementById(`popup-container-${pos}`)) {
-              const container = document.createElement('div');
-              container.id = `popup-container-${pos}`;
-              container.className = `popup-container ${pos}`;
-              document.body.appendChild(container);
-            }
-          });
-        }
-
-        show({
-          type = 'info',
-          message = '',
-          title = '',
-          duration = this.settings.duration,
-          position = this.settings.position,
-          showTime = this.settings.showTime,
-          autoClose = this.settings.autoClose,
-        } = {}) {
-          const container = document.getElementById(`popup-container-${position}`);
-          if (!container) return;
-
-          // Очистка старых, если превышен лимит
-          if (container.children.length >= this.settings.maxNotifications) {
-            const first = container.children[0];
-            first.classList.remove('show');
-            setTimeout(() => first.remove(), 400);
-          }
-
-          const currentTime = new Date().toLocaleTimeString([], {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-          });
-          const popup = document.createElement('div');
-
-          popup.className = `popup popup-${type}`;
-          const displayTitle = title || `SYSTEM_${type.toUpperCase()}`;
-
-          popup.innerHTML = `
-            <div class="popup-icon">${this.icons[type]}</div>
-            <div class="popup-content">
-                <div class="popup-title">${displayTitle}</div>
-                <div class="popup-message">${message}</div>
-                ${showTime ? `<div class="popup-time">TIMESTAMP: ${currentTime}</div>` : ''}
-            </div>
-            <button class="popup-close" aria-label="Abort">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        `;
-
-          container.appendChild(popup);
-
-          // Триггер анимации появления
-          requestAnimationFrame(() => popup.classList.add('show'));
-
-          const closePopup = () => {
-            popup.classList.add('hide');
-            popup.classList.remove('show');
-            popup.addEventListener('transitionend', () => popup.remove(), { once: true });
-          };
-
-          let timeoutId;
-          if (autoClose) {
-            timeoutId = setTimeout(closePopup, duration);
-          }
-
-          const closeBtn = popup.querySelector('.popup-close');
-          closeBtn.onclick = () => {
-            clearTimeout(timeoutId);
-            closePopup();
-          };
-
-          // Пауза при наведении
-          popup.onmouseenter = () => clearTimeout(timeoutId);
-          popup.onmouseleave = () => {
-            if (autoClose) timeoutId = setTimeout(closePopup, duration);
-          };
-
-          return { close: closePopup };
-        }
-
-        success(msg, title) {
-          return this.show({ type: 'success', message: msg, title });
-        }
-        error(msg, title) {
-          return this.show({ type: 'error', message: msg, title });
-        }
-        info(msg, title) {
-          return this.show({ type: 'info', message: msg, title });
-        }
-        warning(msg, title) {
-          return this.show({ type: 'warning', message: msg, title });
-        }
-      }
-    </script>
-
-    <script>
-      const Notifier = new EnigmaNotifier();
-      const inputEl = document.getElementById('inputCss');
-      const outputEl = document.getElementById('outputCss');
-      const codeEl = document.getElementById('highlighting-code');
-      const statusText = document.getElementById('statusText');
-      const statusIndicator = document.getElementById('statusIndicator');
-
-      function updateHighlighting(text) {
-        let content = text.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-        codeEl.innerHTML = content + '\n';
-        Prism.highlightElement(codeEl);
-      }
-
-      function syncScroll(el) {
-        const pre = document.getElementById('highlighting-content');
-        pre.scrollTop = el.scrollTop;
-        pre.scrollLeft = el.scrollLeft;
-      }
-
-      function formatBytes(bytes) {
-        if (bytes === 0) return '0B';
-        const k = 1024;
-        const sizes = ['B', 'KB', 'MB'];
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + sizes[i];
-      }
-
-      function minify() {
-        const raw = inputEl.value;
-        if (!raw.trim()) {
-          Notifier.error('Введите CSS для минимизирования', '400 Bad Request');
-          return;
-        }
-
-        statusText.innerText = 'PROCESSING...';
-        statusIndicator.className = 'w-1.5 h-1.5 rounded-full bg-neon-blue animate-ping';
-
-        setTimeout(() => {
-          const minified = raw
-            .replace(/\/\*[\s\S]*?\*\//g, '')
-            .replace(/\s+/g, ' ')
-            .replace(/\s*([{}:;,])\s*/g, '$1')
-            .replace(/;}/g, '}')
-            .trim();
-
-          outputEl.value = minified;
-
-          const inSize = new Blob([raw]).size;
-          const outSize = new Blob([minified]).size;
-
-          document.getElementById('inputSize').innerText = formatBytes(inSize);
-          document.getElementById('outputSize').innerText = formatBytes(outSize);
-          document.getElementById('savedPercent').innerText =
-            (((inSize - outSize) / inSize) * 100).toFixed(1) + '%';
-          Notifier.success('Файл успешно минимизирован!', '200 OK');
-
-          statusText.innerText = 'SUCCESS';
-          statusIndicator.className = 'w-1.5 h-1.5 rounded-full bg-neon-green';
-        }, 300);
-      }
-
-      function copyOutput() {
-        if (!outputEl.value) return;
-        navigator.clipboard.writeText(outputEl.value);
-        const btn = document.getElementById('copyBtn');
-        Notifier.success('Скопировано!', '200 OK');
-        btn.innerText = '[ COPIED! ]';
-        setTimeout(() => {
-          btn.innerText = '[ Copy ]';
-        }, 2000);
-      }
-
-      function clearAll() {
-        inputEl.value = '';
-        updateHighlighting('');
-        outputEl.value = '';
-        Notifier.warning('Успешно очищено!', '307 Temporary Redirect');
-        document.getElementById('savedPercent').innerText = '0.0%';
-        statusText.innerText = 'IDLE';
-        statusIndicator.className = 'w-1.5 h-1.5 rounded-full bg-gray-600';
-      }
-
-      // Поддержка Tab (4 пробела)
-      inputEl.addEventListener('keydown', function (e) {
-        if (e.key === 'Tab') {
-          e.preventDefault();
-          let start = this.selectionStart;
-          let end = this.selectionEnd;
-          this.value = this.value.substring(0, start) + '    ' + this.value.substring(end);
-          this.selectionStart = this.selectionEnd = start + 4;
-          updateHighlighting(this.value);
-        }
-      });
-    </script>
   </body>
 </html>
